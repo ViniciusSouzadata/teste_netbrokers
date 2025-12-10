@@ -194,5 +194,5 @@ O projeto tem os requisitos técnicos esperados:
 
 ---
 
->  *Desenvolvido por [Vinícius Souza - Analista de Dados Sênior]*
+>  ## Desenvolvido por Vinícius Souza - Analista de Dados Sênior
 
