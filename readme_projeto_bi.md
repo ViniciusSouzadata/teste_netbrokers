@@ -1,4 +1,4 @@
-# 📊 Projeto de Análise de Vendas - BI & Data Science
+# 📊 Case Técnico Netbrokers
 
 ## ✨ Visão Geral
 
@@ -32,6 +32,10 @@ Este projeto tem como objetivo construir um sistema de análise de vendas comple
 
 > ⚠️ **Nota**: as views se mostraram pesadas para atualização no Power BI, por isso foram **materializadas** em tabelas cache:
 > `kpis_diario_cache` e `kpis_mensal_cache`
+
+git add images/C:\teste_dbex\modelo_base.sql
+git commit -m "modelo sql"
+git push origin main
 
 ---
 
