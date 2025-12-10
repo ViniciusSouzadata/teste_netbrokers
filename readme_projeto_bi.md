@@ -37,6 +37,8 @@ git add images/C:\teste_dbex\modelo_base.sql
 git commit -m "modelo sql"
 git push origin main
 
+![Modelo sql do projeo](C:\teste_dbex\modelo_base.sql)
+
 ---
 
 ## 🔍 Tabela Especial: Cohort de Retorno
