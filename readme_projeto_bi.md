@@ -1,12 +1,12 @@
-# 📊 Case Técnico Netbrokers
+#  Case Técnico Netbrokers
 
-## ✨ Visão Geral
+##  Visão Geral
 
 Este projeto tem como objetivo construir um sistema de análise de vendas completo utilizando **PostgreSQL** para modelagem de dados, **Power BI** para visualização dos KPIs e **Python** para análises avançadas com foco em comportamento do cliente e desempenho de produtos.
 
 ---
 
-## 📂 ETL e Modelagem no PostgreSQL
+##  ETL e Modelagem no PostgreSQL
 
 ### Esquema Estrela Criado:
 
@@ -30,18 +30,12 @@ Este projeto tem como objetivo construir um sistema de análise de vendas comple
   - % Cancelamento
   - Segmentação por Canal e UF
 
-> ⚠️ **Nota**: as views se mostraram pesadas para atualização no Power BI, por isso foram **materializadas** em tabelas cache:
+>  **Nota**: as views se mostraram pesadas para atualização no Power BI, por isso foram **materializadas** em tabelas cache:
 > `kpis_diario_cache` e `kpis_mensal_cache`
-
-git add images/C:\teste_dbex\modelo_base.sql
-git commit -m "modelo sql"
-git push origin main
-
-![Modelo sql do projeo](C:\teste_dbex\modelo_base.sql)
 
 ---
 
-## 🔍 Tabela Especial: Cohort de Retorno
+##  Tabela Especial: Cohort de Retorno
 
 Criada no PostgreSQL com base em:
 - Primeiro mês de compra por cliente (`mes_entrada`)
@@ -49,11 +43,21 @@ Criada no PostgreSQL com base em:
 - Cálculo do `mes_relativo` (M0, M1, ...)
 - Percentual de retorno por cohort
 
+## Query
+- [consulta.sql](modelo_base.sql)
+
+## Arquivos
+
+- [dados.csv](pedidos.csv)
+- [dados.csv](produtos.csv)
+- [dados.csv](itens_pedido.csv)
+- [dados.csv](clientes.csv)
+
 > Resultado usado no Power BI em visual de matriz com linhas = mes_entrada e colunas = mes_relativo
 
 ---
 
-## 📈 Power BI - Visualizações Criadas
+##  Power BI - Visualizações Criadas
 
 ### Página 1: Visão Geral
 - Filtros: Mês, Canal, UF
@@ -72,11 +76,13 @@ Criada no PostgreSQL com base em:
 - Matriz com % de Retorno por Mês Relativo
 - Filtro de Mês de Entrada
 
-> ✏️ O background foi prototipado no **Figma** e importado como imagem
+[Baixar dashboard](dash_netbrkers.pbix)
+
+>  O background foi prototipado no **Figma** e importado como imagem
 
 ---
 
-## 📊 Medidas DAX Utilizadas
+##  Medidas DAX Utilizadas
 
 ```DAX
 Pct_Retorno_ajustado = MAX(cohort_retorno[pct_retorno])
@@ -129,18 +135,17 @@ SUMX(
 
 ---
 
-## 📓 Dim Calendário
+##  Dim Calendário
 Criada e relacionada por `data_pedido` com as tabelas fato. Contém colunas:
 - Data, Ano, Mês, Trimestre
 - Ano-Mês, Dia da Semana
 
 ---
 
-## 💻 Python - Análises Avançadas (Jupyter)
+##  Python - Análises Avançadas (Jupyter)
 
-Arquivo: `analise_final.ipynb`
 
-### 1. 🚫 Detecção de Anomalias
+### 1.  Detecção de Anomalias
 - Cálculo de z-score da receita diária
 - Identifica 3 maiores outliers
 - Para cada outlier, extrai:
@@ -148,14 +153,19 @@ Arquivo: `analise_final.ipynb`
   - SKU mais vendido
 - Gráfico: linha com receita e marcação dos outliers
 
-### 2. 🌟 RFM - Propensão de Compra
+[Gráfico 1](pythong1.png)
+
+### 2.  RFM - Propensão de Compra
 - Recência: dias desde última compra
 - Frequência: total de pedidos
 - Monetário: soma da receita
 - Cálculo de Score RFM (1 a 5 para cada dimensão)
 - Gráfico de barras: Top 20 clientes com maior RFM
 
-### 3. 📅 Classificação ABC de Produtos
+[Gráfico 2](pythong3.png)
+
+
+### 3.  Classificação ABC de Produtos
 - Soma da receita por SKU
 - Participação acumulada
 - Classifica como:
@@ -164,18 +174,18 @@ Arquivo: `analise_final.ipynb`
   - C: 95-100%
 - Gráfico de barras com classificacão
 
-### 4. 🤔 Simulação What-If (+10% desconto em SKUs B)
-- Aplica desconto adicional virtual de 10%
-- Calcula impacto na receita total
-- Exibe:
-  - Receita atual
-  - Receita simulada
-  - % de perda
+[Gráfico 3](pythong2.png)
+
+### Script em Python
+
+[Script Python](analise_final.pipynb)
 
 ---
 
-## 📅 Conclusão
-O projeto atinge todos os requisitos técnicos esperados:
+##  Conclusão
+
+O projeto tem os requisitos técnicos esperados:
+
 - Modelagem em estrela
 - KPIs completos
 - Visuals funcionais e responsivos
@@ -184,5 +194,5 @@ O projeto atinge todos os requisitos técnicos esperados:
 
 ---
 
-> ✨ *Desenvolvido com capricho por [Seu Nome]*
+>  *Desenvolvido por [Vinícius Souza - Analista de Dados Sênior]*
 
